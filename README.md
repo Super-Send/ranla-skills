@@ -16,6 +16,13 @@ npx skills add Super-Send/ranla-skills --skill ranla-cli -y
 
 Restart or reload your agent afterwards so it picks the skills up.
 
+**Claude Code:** the [Ranla plugin](https://github.com/Super-Send/ranla-claude-plugin) bundles these skills with Ranla's hosted MCP server:
+
+```bash
+claude plugin marketplace add Super-Send/ranla-claude-plugin
+claude plugin install ranla@ranla
+```
+
 ## Skills
 
 | Skill | What it teaches the agent |
