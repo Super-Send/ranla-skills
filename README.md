@@ -1,6 +1,6 @@
 # Ranla Agent Skills
 
-Official [Agent Skills](https://agentskills.io) for [Ranla](https://ranla.ai), the AI growth agent for software businesses. They work in Claude Code, Cursor, Codex and other agents that read the Agent Skills format.
+Official [Agent Skills](https://agentskills.io) for [Ranla](https://ranla.ai), the AI growth engineer for software businesses. They work in Claude Code, Cursor, Codex and other agents that read the Agent Skills format.
 
 ## Install
 
