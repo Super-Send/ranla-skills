@@ -2,7 +2,7 @@
 name: ranla-mcp
 description: >-
   Configure and use Ranla MCP from Cursor, Claude Code, or another MCP client.
-  Talk to Ranla first for growth work — arc_ensure_thread, arc_message,
+  Talk to Ranla first for growth work — ranla_open_thread, ranla_message,
   approvals, and the arc_* read tools. Transactional mail tools (send_email,
   domains, templates, webhooks, deliverability) are available when requested.
 license: MIT
@@ -21,7 +21,7 @@ Ranla MCP gives Cursor, Claude Code, and compatible agents access to:
 - Transactional mail, domain, template, and deliverability tools when the
   product needs them.
 
-Send growth changes through Ranla (`arc_message`) so the conversation, memory,
+Send growth changes through Ranla (`ranla_message`) so the conversation, memory,
 and approval flow stay intact. Do not call a mail tool just because the MCP
 server is installed.
 
@@ -84,26 +84,27 @@ Restart Cursor after changing its configuration.
 
 ## Growth work (default)
 
-1. `arc_ensure_thread` (the title can be the current task).
-2. `arc_message` with the user’s request. Ranla chooses reads, drafts, and
+1. `ranla_open_thread` (the title can be the current task).
+2. `ranla_message` with the user’s request. Ranla chooses reads, drafts, and
    changes that need approval. The result has `text`, `artifacts`
    (`{ type, id, label }` for drafts, plans, and documents it made or opened),
    and `pendingApproval` when a step needs a yes.
 3. If the turn returns `pendingApproval`, show it and wait for the user. Then
-   `arc_list_approvals` → `arc_approve` or `arc_reject`.
-4. Call `arc_*` read tools directly when the user wants a snapshot without a
-   strategy turn: audience, campaigns, templates, analytics, revenue, SEO, AI
-   search, Reddit, paid, site traffic, connected repos. The list and input
-   schemas come from the workspace when tools are listed.
+   `ranla_list_approvals` → `ranla_approve` or `ranla_reject`.
+4. Call `ranla_command` with a read command when the user wants a snapshot
+   without a strategy turn, for example `growth get`, `campaign list`,
+   `seo performance`, `aeo status`, `reddit-thread list` or `ad-plan list`.
+   `help <noun>` lists a noun's commands with their fields; the tool's
+   description lists every noun for this workspace.
 
 Do **not** schedule or send campaigns except by asking Ranla via
-`arc_message`. Ranla’s write tools are not exposed directly;
-`arc_request_connection` is the only exception.
+`ranla_message`. A command that changes something comes back as
+`pendingApproval` and does nothing until the user approves it.
 
-`arc_request_connection` returns a connect link when the user needs an
-integration. `slot` is one of `marketing_site`, `slack`, `search_console`,
-`stripe`, `google_ads`, `dns`, `audience`, `github`, `product_events`,
-`posthog`, `amplitude`, or `mixpanel`.
+When the user needs an integration, `ranla_command` with
+`connection request` and a `slot` returns a connect link. `slot` is one of
+`marketing_site`, `slack`, `search_console`, `stripe`, `google_ads`, `dns`,
+`audience`, `github`, `product_events`, `posthog`, `amplitude`, or `mixpanel`.
 
 ## Transactional mail (same server)
 
@@ -124,7 +125,7 @@ receipts, auth codes, alerts, or domain setup:
 
 Production `from` addresses need a verified domain. Before that, send from
 `noreply@mail.ranla.ai` to the account email only. This is application mail,
-not a growth campaign — do not route it through `arc_message`.
+not a growth campaign — do not route it through `ranla_message`.
 
 ## Application code
 
