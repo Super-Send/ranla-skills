@@ -1,33 +1,29 @@
-# SuperSend TX Agent Skills
+# Ranla Agent Skills
 
-Official [Agent Skills](https://agentskills.io) for [SuperSend TX](https://supersendtx.com) — Cursor, Claude Code, Codex, and compatible clients.
+Official [Agent Skills](https://agentskills.io) for [Ranla](https://ranla.ai), the AI growth agent for software businesses. They work in Claude Code, Cursor, Codex and other agents that read the Agent Skills format.
 
 ## Install
 
 ```bash
 # All skills
-npx skills add Super-Send/supersendtx-skills -y
+npx skills add Super-Send/ranla-skills -y
 
 # Or one at a time
-npx skills add Super-Send/supersendtx-skills --skill supersendtx -y
-npx skills add Super-Send/supersendtx-skills --skill supersendtx-mcp -y
-npx skills add Super-Send/supersendtx-skills --skill supersendtx-cli -y
-npx skills add Super-Send/supersendtx-skills --skill email-best-practices -y
+npx skills add Super-Send/ranla-skills --skill ranla -y
+npx skills add Super-Send/ranla-skills --skill ranla-mcp -y
+npx skills add Super-Send/ranla-skills --skill ranla-cli -y
 ```
 
-Docs: https://docs.supersendtx.com/ai/agent-skills
+Restart or reload your agent afterwards so it picks the skills up.
 
 ## Skills
 
-| Skill | Purpose |
-|-------|---------|
-| [`supersendtx`](./skills/supersendtx/SKILL.md) | Send API, auth, sandbox, domains, SDK patterns |
-| [`supersendtx-mcp`](./skills/supersendtx-mcp/SKILL.md) | MCP install + tools |
-| [`supersendtx-cli`](./skills/supersendtx-cli/SKILL.md) | Common CLI flows |
-| [`email-best-practices`](./skills/email-best-practices/SKILL.md) | Deliverability, DNS, suppressions, key hygiene |
+| Skill | What it teaches the agent |
+|-------|---------------------------|
+| [`ranla`](./skills/ranla/SKILL.md) | Wire sign-ups, activation and payment events into Ranla, and send transactional email when the product needs it |
+| [`ranla-mcp`](./skills/ranla-mcp/SKILL.md) | Work with Ranla through its MCP server: growth health, campaigns, pages, replies and approvals |
+| [`ranla-cli`](./skills/ranla-cli/SKILL.md) | Drive Ranla from the terminal with `ranla-cli`: browser sign-in, Ranla's commands, approvals |
 
-For React Email authoring, use React Email’s own tools; send with SuperSend TX.
+Nothing is sent, spent or published until you approve it.
 
-## License
-
-MIT
+Docs: [docs.ranla.ai/ai/agent-skills](https://docs.ranla.ai/ai/agent-skills) · Questions: contact@ranla.ai
