@@ -3,7 +3,7 @@ name: ranla-mcp
 description: >-
   Configure and use Ranla MCP from Cursor, Claude Code, or another MCP client.
   Talk to Ranla first for growth work — ranla_open_thread, ranla_message,
-  approvals, and the arc_* read tools. Transactional mail tools (send_email,
+  approvals, and ranla_command for reads. Transactional mail tools (send_email,
   domains, templates, webhooks, deliverability) are available when requested.
 license: MIT
 metadata:
@@ -35,7 +35,7 @@ server is installed.
   header (`Bearer rnl_…`). `RANLA_API_KEY` is not used there.
 - The Ranla agent tools need a full-access key. OAuth sign-in and keys created
   in the dashboard have full access; a sending-only key gets a 403 on every
-  `arc_*` tool.
+  `ranla_*` tool.
 - Keep keys out of committed config, source, and chat.
 
 ## Install
